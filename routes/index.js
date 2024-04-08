@@ -38,7 +38,7 @@ notes.delete('/:id', (req, res) => {
 });
 
 notes.put('/:id', (req, res) => {
-    const noteId = req.params.id.toString(); // Ensure noteId is a string
+    const noteId = req.params.id.toString(); 
     const { title, text } = req.body;
     console.log(title, text, noteId);
     if (req.body) {
@@ -47,7 +47,6 @@ notes.put('/:id', (req, res) => {
         readFromFile('./db/db.json')
             .then((data) => JSON.parse(data))
             .then((json) => {
-                // Filter out the note with the same ID and append the updated note
                 const result = json.filter((note) => note.id.toString() !== noteId);
                 result.push(updatedNote);
                 writeToFile('./db/db.json', result);
