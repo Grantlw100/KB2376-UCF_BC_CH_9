@@ -2,7 +2,7 @@ const express = require('express');
 const path = require('path');
 const notesRouter = require('./routes/index.js');
 
-const PORT = process.env.PORT || 3002;
+const PORT = process.env.PORT;
 
 const app = express();
 
